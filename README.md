@@ -13,6 +13,8 @@ In order to generate a random password every time I have used the function calle
 You can view the webpage with the help of URL -
 There is no need for installation.
 
-Please find alos the screenshot below for the project results -
+Please find alos the screenshots below for the project results -
 
-! [ScreenShot 1] (/)
+![ScreenShot 1] ()
+![ScreenShot 2] ()
+![ScreenShot 3] ()
