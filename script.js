@@ -88,7 +88,7 @@ let upperCasedCharacters = [
   "Z",
 ];
 
-// prompt asking the length of password.
+// setting variable for the length of password seleted by user
 
 let passwordLength;
 
@@ -98,17 +98,21 @@ function getPasswordLength() {
       "What length you want your password to be? Please choose a number bewteen 10 - 64! PLease retry"
     )
   );
+  // converting password length from string to Number
   if (Number.isNaN(passwordLength)) {
     alert(
       "Password length has to be a Number! Please choose a number bewteen 10 - 64!"
     );
     getPasswordLength();
   }
+  // accepting only if the selected length is betwee 10 and 64
   if (passwordLength < 10 || passwordLength > 64) {
     alert("Password length has be a Number between 10 - 64! Please retry");
     getPasswordLength();
   }
 }
+
+// creating variables for the options of charaters selected by the user
 
 let lowerCaseCha;
 

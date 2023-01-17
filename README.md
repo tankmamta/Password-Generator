@@ -11,9 +11,9 @@ In order to generate a random password every time I have used the function calle
 // Installation What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 You can view the webpage with the help of URL - https://tankmamta.github.io/Password-Generator/
-There is no need for installation.
+There is no need for installation for this application
 
-Please find alos the screenshots below for the project results -
+//Please find alos the screenshots below for the project results -
 
 ![ScreenShot 1] (/assets/Screenshot 2023-01-17 at 7.25.39 pm.png)
 ![ScreenShot 2] (/assets/Screenshot 2023-01-17 at 7.26.22 pm.png)
