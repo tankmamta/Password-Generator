@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+let upperCasedCharacters = [
   "A",
   "B",
   "C",
@@ -90,44 +90,94 @@ var upperCasedCharacters = [
 
 // prompt asking the length of password.
 
+let passwordLength;
 
-
-// let lowwerCaseCha = prompt("Would you like Lower Case characters in you Password?");
-
-// let upperCaseCha = prompt("Would you like Upper Case characters in your Password?");
-
-// let numericCha = prompt("Would you like Numeric characters in your Password?");
-
-// let specialCha = prompt("Would you like Special characters in your Password?");
-
-let passwordLength = 0;
-
-function getPasswordLength () { 
-  
-  passwordLength = parseInt( prompt(
-    "What length you want your password to be? Please choose a number bewteen 10 - 64! PLease retry"
-  )); 
-    if (Number.isNaN(passwordLength)) {
-      alert ("Password length has to be a Number! Please choose a number bewteen 10 - 64!");
-      getPasswordLength();
-    }
-    if (passwordLength < 10 || passwordLength > 64) {
-      alert ("Password length has be a Number between 10 - 64! Please retry");
-      getPasswordLength();
-    }
+function getPasswordLength() {
+  passwordLength = parseInt(
+    prompt(
+      "What length you want your password to be? Please choose a number bewteen 10 - 64! PLease retry"
+    )
+  );
+  if (Number.isNaN(passwordLength)) {
+    alert(
+      "Password length has to be a Number! Please choose a number bewteen 10 - 64!"
+    );
+    getPasswordLength();
+  }
+  if (passwordLength < 10 || passwordLength > 64) {
+    alert("Password length has be a Number between 10 - 64! Please retry");
+    getPasswordLength();
+  }
 }
+
+let lowerCaseCha;
+
+let upperCaseCha;
+
+let numericCha;
+
+let specialCha;
+
+let validCha;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  lowerCaseCha = confirm(
+    "Would you like Lower Case characters in you Password?"
+  );
+  if (lowerCaseCha) {
+    validCha = validCha.concat(lowerCasedCharacters);
+  }
 
+  upperCaseCha = confirm(
+    "Would you like Upper Case characters in your Password?"
+  );
+  if (upperCaseCha) {
+    validCha = validCha.concat(upperCasedCharacters);
+  }
+
+  numericCha = confirm("Would you like Numeric characters in your Password?");
+  if (numericCha) {
+    validCha = validCha.concat(numericCharacters);
+  }
+
+  specialCha = confirm("Would you like Special characters in your Password?");
+  if (specialCha) {
+    validCha = validCha.concat(specialCharacters);
+  }
+
+  if (lowerCaseCha === false && 
+      upperCaseCha === false &&
+      numericCha === false &&
+      specialCha === false ){
+        alert ("Atleast one character type should be selected. Please retry!");
+        getPasswordOptions();
+      }
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  return arr [Math.floor(Math.random() * arr.length)];
+}
 
 // Function to generate password with user input
 function generatePassword() {
+  validCha = [];
+  passwordLength = 0;
+  lowerCaseCha = false;
+  upperCaseCha = false;
+  numericCha = false;
+  specialCha = false;
+
+  let randomPassword = "";
   getPasswordLength();
-  console.log("Password length = " , passwordLength);
+  console.log("Password length = ", passwordLength);
+  getPasswordOptions();
+  console.log("validCha = " , validCha);
+  for (let i = 0; i < passwordLength; i++){
+    randomPassword += getRandom(validCha);
+  }
+  return randomPassword;
 }
 
 // Get references to the #generate element
